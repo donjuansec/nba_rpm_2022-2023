@@ -27,13 +27,22 @@
       "name": "ReportSection",
       "visualContainers": [
         {
-          "config": "{\"name\":\"3df16d8b79babc076908\",\"layouts\":[{\"id\":0,\"position\":{\"x\":395.39267015706804,\"y\":87.12041884816753,\"z\":0,\"width\":472.46073298429314,\"height\":526.0732984293194}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"RPM Stats.NAME\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"r\",\"Entity\":\"RPM Stats\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"NAME\"},\"Name\":\"RPM Stats.NAME\",\"NativeReferenceName\":\"NAME\"}]},\"drillFilterOtherVisuals\":true}}",
+          "config": "{\"name\":\"8e00783f0a2263baead6\",\"layouts\":[{\"id\":0,\"position\":{\"x\":540.261780104712,\"y\":188.42931937172773,\"width\":300,\"height\":300,\"z\":0}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"RPM Stats.NAME\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"r\",\"Entity\":\"RPM Stats\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"NAME\"},\"Name\":\"RPM Stats.NAME\",\"NativeReferenceName\":\"NAME\"}]},\"drillFilterOtherVisuals\":true}}",
           "filters": "[]",
-          "height": 526.07,
-          "width": 472.46,
-          "x": 395.39,
-          "y": 87.12,
+          "height": 300.00,
+          "width": 300.00,
+          "x": 540.26,
+          "y": 188.43,
           "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"c6159c3753e0a800e068\",\"layouts\":[{\"id\":0,\"position\":{\"x\":910.523560209424,\"y\":188.42931937172773,\"width\":300,\"height\":300,\"z\":1}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"RPM Stats.TEAM\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"r\",\"Entity\":\"RPM Stats\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"TEAM\"},\"Name\":\"RPM Stats.TEAM\",\"NativeReferenceName\":\"TEAM\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 300.00,
+          "width": 300.00,
+          "x": 910.52,
+          "y": 188.43,
+          "z": 1.00
         }
       ],
       "width": 1280.00
