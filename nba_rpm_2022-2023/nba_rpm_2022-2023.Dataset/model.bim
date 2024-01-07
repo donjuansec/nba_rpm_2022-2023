@@ -1,0 +1,473 @@
+{
+  "compatibilityLevel": 1550,
+  "model": {
+    "annotations": [
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"GetRPM\",\"RPM Stats\"]"
+      },
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "1"
+      },
+      {
+        "name": "PBIDesktopVersion",
+        "value": "2.124.1052.0 (23.12)"
+      },
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"DevMode\"]"
+      }
+    ],
+    "culture": "en-US",
+    "cultures": [
+      {
+        "name": "en-US",
+        "linguisticMetadata": {
+          "content": {
+            "DynamicImprovement": "HighConfidence",
+            "Language": "en-US",
+            "Version": "1.0.0"
+          },
+          "contentType": "json"
+        }
+      }
+    ],
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "expressions": [
+      {
+        "name": "GetRPM",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Function"
+          }
+        ],
+        "expression": [
+          "(RPMURL) =>",
+          "",
+          "let",
+          "    Source = Web.BrowserContents(RPMURL),",
+          "    #\"Extracted Table From Html\" = Html.Table(Source, {{\"Column1\", \"TABLE.tablehead > * > TR > :nth-child(1)\"}, {\"Column2\", \"TABLE.tablehead > * > TR > :nth-child(2)\"}, {\"Column3\", \"TABLE.tablehead > * > TR > :nth-child(3)\"}, {\"Column4\", \"TABLE.tablehead > * > TR > :nth-child(4)\"}, {\"Column5\", \"TABLE.tablehead > * > TR > :nth-child(5)\"}, {\"Column6\", \"TABLE.tablehead > * > TR > :nth-child(6)\"}, {\"Column7\", \"TABLE.tablehead > * > TR > :nth-child(7)\"}, {\"Column8\", \"TABLE.tablehead > * > TR > :nth-child(8)\"}, {\"Column9\", \"TABLE.tablehead > * > TR > :nth-child(9)\"}}, [RowSelector=\"TABLE.tablehead > * > TR\"]),",
+          "    #\"Promoted Headers\" = Table.PromoteHeaders(#\"Extracted Table From Html\", [PromoteAllScalars=true]),",
+          "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"RK\", Int64.Type}, {\"NAME\", type text}, {\"TEAM\", type text}, {\"GP\", Int64.Type}, {\"MPG\", type number}, {\"ORPM\", type number}, {\"DRPM\", type number}, {\"RPM\", type number}, {\"WINS\", type number}})",
+          "in",
+          "    #\"Changed Type\""
+        ],
+        "kind": "m",
+        "lineageTag": "e35b39ff-e6e0-4f23-8352-e9f9f92c9973"
+      }
+    ],
+    "sourceQueryCulture": "en-US",
+    "tables": [
+      {
+        "name": "RPM Stats",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "RPMURL",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "20014113-d6dd-458f-a989-5e151fd064e4",
+            "sourceColumn": "RPMURL",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "RK",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "019639b7-3613-4887-bdf7-3cd3ebb68553",
+            "sourceColumn": "RK",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "NAME",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "9914a279-ab45-4da9-acbf-8a4da44d82cd",
+            "sourceColumn": "NAME",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "TEAM",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "a103cddb-c484-418c-9ebf-af1b6ed9d93e",
+            "sourceColumn": "TEAM",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "GP",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "12c5e3be-4b61-45d3-9398-d40973ec3d0a",
+            "sourceColumn": "GP",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "MPG",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "6aff5be1-3fd1-4705-a90d-7d8d6646fb02",
+            "sourceColumn": "MPG",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "ORPM",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "75f6e238-0f55-49db-a595-7c011b06e197",
+            "sourceColumn": "ORPM",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "DRPM",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "31438ef7-0dc1-48be-a2df-2ba505805b0b",
+            "sourceColumn": "DRPM",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "RPM",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "1ad60b56-e470-4ede-a01d-abf5df432c51",
+            "sourceColumn": "RPM",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "WINS",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "c78d2748-3671-4ba1-9b13-6673d0b5cf4b",
+            "sourceColumn": "WINS",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "bd0e897d-3f9e-4cb4-becb-70d29422f73b",
+        "partitions": [
+          {
+            "name": "RPM Stats",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText(\"i45WyigpKSi20tcvLy/XSy0uyNNLzs/Vz0tK1C8uSSzJLC7JTC7WLyrI1Y/Xr0xNLNI3MjAy1i9ITE/VV4rVGdU9qntUNwHdsQA=\", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [RPMURL = _t]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(Source,{{\"RPMURL\", type text}}),",
+                "    #\"Added Index\" = Table.AddIndexColumn(#\"Changed Type\", \"Index\", 1, 1, Int64.Type),",
+                "    #\"Merged Columns\" = Table.CombineColumns(Table.TransformColumnTypes(#\"Added Index\", {{\"Index\", type text}}, \"en-US\"),{\"RPMURL\", \"Index\"},Combiner.CombineTextByDelimiter(\"\", QuoteStyle.None),\"Merged\"),",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Merged Columns\",{{\"Merged\", \"RPMURL\"}}),",
+                "    #\"Invoked Custom Function\" = Table.AddColumn(#\"Renamed Columns\", \"GetRPM\", each GetRPM([RPMURL])),",
+                "    #\"Expanded GetRPM\" = Table.ExpandTableColumn(#\"Invoked Custom Function\", \"GetRPM\", {\"RK\", \"NAME\", \"TEAM\", \"GP\", \"MPG\", \"ORPM\", \"DRPM\", \"RPM\", \"WINS\"}, {\"RK\", \"NAME\", \"TEAM\", \"GP\", \"MPG\", \"ORPM\", \"DRPM\", \"RPM\", \"WINS\"}),",
+                "    #\"Changed Type1\" = Table.TransformColumnTypes(#\"Expanded GetRPM\",{{\"RK\", Int64.Type}, {\"NAME\", type text}, {\"TEAM\", type text}, {\"GP\", Int64.Type}, {\"MPG\", type number}, {\"ORPM\", type number}, {\"DRPM\", type number}, {\"RPM\", type number}, {\"WINS\", type number}})",
+                "in",
+                "    #\"Changed Type1\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "DateTableTemplate_dd2356f2-3fe6-4534-821b-719419ab0928",
+        "annotations": [
+          {
+            "name": "__PBI_TemplateDateTable",
+            "value": "true"
+          },
+          {
+            "name": "DefaultItem",
+            "value": "DateHierarchy"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "PaddedDateTableDates",
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "isHidden": true,
+            "isNameInferred": true,
+            "lineageTag": "e905825e-79bc-4136-9457-6eac67af8b75",
+            "sourceColumn": "[Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Year"
+              }
+            ],
+            "dataCategory": "Years",
+            "dataType": "int64",
+            "expression": "YEAR([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "17f98bbc-7c0b-45be-a5d2-1a4526450410",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "MonthNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "MonthNumber"
+              }
+            ],
+            "dataCategory": "MonthOfYear",
+            "dataType": "int64",
+            "expression": "MONTH([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "af741e86-04bd-4e03-8e5a-05095f2a7532",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Month"
+              }
+            ],
+            "dataCategory": "Months",
+            "dataType": "string",
+            "expression": "FORMAT([Date], \"MMMM\")",
+            "isHidden": true,
+            "lineageTag": "098a2a68-8b40-443d-ac0e-a8e2a695c691",
+            "sortByColumn": "MonthNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "QuarterNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "QuarterNumber"
+              }
+            ],
+            "dataCategory": "QuarterOfYear",
+            "dataType": "int64",
+            "expression": "INT(([MonthNo] + 2) / 3)",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "34e31c10-a317-49dd-aacd-056512f7e4c3",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Quarter",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Quarter"
+              }
+            ],
+            "dataCategory": "Quarters",
+            "dataType": "string",
+            "expression": "\"Qtr \" & [QuarterNo]",
+            "isHidden": true,
+            "lineageTag": "ad8aed29-a688-49dd-8879-8767ab067d1b",
+            "sortByColumn": "QuarterNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Day",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Day"
+              }
+            ],
+            "dataCategory": "DayOfMonth",
+            "dataType": "int64",
+            "expression": "DAY([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "e163512d-7a37-4114-8189-de2f9bb53aa5",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Date Hierarchy",
+            "annotations": [
+              {
+                "name": "TemplateId",
+                "value": "DateHierarchy"
+              }
+            ],
+            "levels": [
+              {
+                "name": "Year",
+                "column": "Year",
+                "lineageTag": "48b8a7ae-c235-4e62-865f-386d6c176711",
+                "ordinal": 0
+              },
+              {
+                "name": "Quarter",
+                "column": "Quarter",
+                "lineageTag": "338d39c2-4cde-4a0f-9cb4-401b2e7a0d42",
+                "ordinal": 1
+              },
+              {
+                "name": "Month",
+                "column": "Month",
+                "lineageTag": "301831d8-1bd0-4a85-98c1-2d4c8470d6c4",
+                "ordinal": 2
+              },
+              {
+                "name": "Day",
+                "column": "Day",
+                "lineageTag": "67c1db61-c88c-41c9-b0e1-c4031e2088ef",
+                "ordinal": 3
+              }
+            ],
+            "lineageTag": "cee30276-d1cb-45e4-88f1-d83180fdaab6"
+          }
+        ],
+        "isHidden": true,
+        "isPrivate": true,
+        "lineageTag": "a001199c-e71c-48a2-a012-714b203edd47",
+        "partitions": [
+          {
+            "name": "DateTableTemplate_dd2356f2-3fe6-4534-821b-719419ab0928",
+            "mode": "import",
+            "source": {
+              "expression": "Calendar(Date(2015,1,1), Date(2015,1,1))",
+              "type": "calculated"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
