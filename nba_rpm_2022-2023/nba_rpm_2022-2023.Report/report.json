@@ -25,7 +25,17 @@
       "filters": "[]",
       "height": 720.00,
       "name": "ReportSection",
-      "visualContainers": [],
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"3df16d8b79babc076908\",\"layouts\":[{\"id\":0,\"position\":{\"x\":395.39267015706804,\"y\":87.12041884816753,\"z\":0,\"width\":472.46073298429314,\"height\":526.0732984293194}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"RPM Stats.NAME\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"r\",\"Entity\":\"RPM Stats\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"NAME\"},\"Name\":\"RPM Stats.NAME\",\"NativeReferenceName\":\"NAME\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 526.07,
+          "width": 472.46,
+          "x": 395.39,
+          "y": 87.12,
+          "z": 0.00
+        }
+      ],
       "width": 1280.00
     }
   ]
